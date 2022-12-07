@@ -1,0 +1,6 @@
+<div class="todo-item" *ngIf="todoItem">
+  <button class="button" (click)="toggleCompleted()">
+    <div class="title">{{ todoItem.title }}</div>
+    <div class="priority">{{ todoItem.priority.priorityType }}</div>
+  </button>
+</div>
