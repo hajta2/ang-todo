@@ -12,7 +12,11 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   getTodoItems(): Observable<TodoItem[]> {
-    return this.http.get<TodoItem[]>(this.todoUrl);
+    return this.http.get<TodoItem[]>(this.todoUrl + '?status=in_progress');
+  }
+
+  getCompletedTodoItems(): Observable<TodoItem[]> {
+    return this.http.get<TodoItem[]>(this.todoUrl + '?status=done');
   }
 
   getOrderedTodoItems(): Observable<TodoItem[]> {

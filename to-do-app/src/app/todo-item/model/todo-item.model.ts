@@ -4,7 +4,7 @@ import { TodoStatus } from './todo-status.model';
 export class TodoItem {
   public id: number;
   public title: string;
-  public details: string;
+  public description: string;
   public created: Date;
   public status: TodoStatus;
   public priority: ToDoPriority;
@@ -12,14 +12,14 @@ export class TodoItem {
     id: number,
     title: string,
     status: TodoStatus,
-    details: string,
+    description: string,
     created: Date,
     priority: ToDoPriority
   ) {
     this.id = id;
     this.title = title;
     this.status = status;
-    this.details = details;
+    this.description = description;
     this.created = created;
     this.priority = priority;
   }

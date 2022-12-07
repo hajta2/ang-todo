@@ -13,7 +13,6 @@ export class TodoListComponent {
   ngOnInit() {
     this.todoService.getTodoItems().subscribe((todoItems) => {
       this.todoItems = todoItems;
-      console.log(this.todoItems);
     });
   }
 }
