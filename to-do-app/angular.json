@@ -63,7 +63,8 @@
               "browserTarget": "to-do-app:build:production"
             },
             "development": {
-              "browserTarget": "to-do-app:build:development"
+              "browserTarget": "to-do-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
