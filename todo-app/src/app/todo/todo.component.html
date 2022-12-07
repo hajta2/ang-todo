@@ -1,0 +1,8 @@
+<!-- simple todo element -->
+<div class="todo-element" *ngIf="todo">
+  <h2>{{ todo.title }}</h2>
+  <h3>{{ todo.startDate }}</h3>
+  <p>{{ todo.description }}</p>
+  <button (click)="toggleDone()">Done</button>
+  <button (click)="deleteTodo()">Delete</button>
+</div>
