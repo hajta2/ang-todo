@@ -1,8 +1,10 @@
-<!-- simple todo element -->
-<div class="todo-element" *ngIf="todo">
-  <h2>{{ todo.title }}</h2>
-  <h3>{{ todo.startDate }}</h3>
-  <p>{{ todo.description }}</p>
-  <button (click)="toggleDone()">Done</button>
-  <button (click)="deleteTodo()">Delete</button>
+<div class="todo" *ngIf="todo">
+  <input
+    class="toggle"
+    type="checkbox"
+    [checked]="todo.done"
+    (change)="toggleCompleted()"
+  />
+  <label (dblclick)="setTodoToEdit()">{{ todo.title }}</label>
+  <button class="destroy" (click)="removeTodoById(todo.id)"></button>
 </div>

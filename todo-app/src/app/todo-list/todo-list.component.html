@@ -1,3 +1,15 @@
-<div class="todo-list" *ngFor="let todo of todos">
-  <app-todo [todo]="todo"></app-todo>
+<div class="todoApp">
+  <h1>Todo List</h1>
+  <div class="todo-list" *ngFor="let todo of todos">
+    <app-todo [todo]="todo"></app-todo>
+  </div>
+  <footer class="footer">
+    <span class="todo-count">
+      <strong>{{ todos.length }}</strong> item(s) left
+    </span>
+    <button class="completed-button" (click)="showCompleted()">
+      Completed
+    </button>
+    <button class="add-todo-button" routerLink="/add-todo">Add Todo</button>
+  </footer>
 </div>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Todo } from '../todo/model/todo.model';
-import { Category } from '../categories/model/category.model';
+import { Todo } from '../todo/models/todo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +14,10 @@ export class TodoService {
     return this.http.get<Todo[]>(this.todosUrl);
   }
 
+  getCompletedTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.todosUrl + '?completed=true');
+  }
+
   getTodoById(id: number): Observable<Todo> {
     return this.http.get<Todo>(this.todosUrl + '/' + id);
   }
@@ -23,8 +26,8 @@ export class TodoService {
     return this.http.get<Todo>(this.todosUrl + '?limit=2&sort=desc');
   }
 
-  createTodo(todo: Todo, category: Category): Observable<Todo> {
-    return this.http.post<Todo>(this.todosUrl + '/' + category.id, todo);
+  createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.todosUrl, todo);
   }
 
   updateTodoById(todo: Todo): Observable<Todo> {
