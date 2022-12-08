@@ -1,0 +1,51 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #form="ngForm" *ngIf="todo">
+    <div class="form-group">
+      <label for="todo">Todo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="todo.title"
+        name="title"
+        #title="ngModel"
+      />
+    </div>
+    <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+      Title is required
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="todo.description"
+        name="description"
+        #description="ngModel"
+      />
+    </div>
+    <div
+      [hidden]="description.valid || description.pristine"
+      class="alert alert-danger"
+    >
+      Description is required
+    </div>
+    <div class="form-group">
+      <label for="done">Done</label>
+      <input
+        type="checkbox"
+        class="form-control"
+        id="done"
+        [(ngModel)]="todo.done"
+        name="done"
+        #done="ngModel"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary" routerLink="/todo-list">
+      Submit
+    </button>
+  </form>
+</div>
